@@ -1,15 +1,11 @@
 package org.example;
 
-import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 
@@ -70,7 +66,12 @@ public class XmlParser {
 
                     if(endElement.getName().getLocalPart().equals("entry"))
                     {
-                        papers.add(new Paper(title, summary, uri, date));
+                        Paper currentPaper = new Paper();
+                        currentPaper.setTitle(title);
+                        currentPaper.setSummary(summary);
+                        currentPaper.setUrl(uri);
+                        currentPaper.setDate(date);
+                        papers.add(currentPaper);
                         title = "";
                         summary = "";
                         uri = "";

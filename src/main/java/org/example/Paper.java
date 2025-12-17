@@ -1,16 +1,14 @@
 package org.example;
 
 public class Paper {
-    private String title;
-    private String summary;
-    private String url;
-    private String date;
-    public Paper(String title, String summary, String url, String date)
+    private String title = "";
+    private String summary = "";
+    private String url = "";
+    private String date = "";
+
+    public Paper()
     {
-        this.title = title;
-        this.summary = summary;
-        this.url = url;
-        this.date = date;
+
     }
 
     public String getTitle()
@@ -31,5 +29,26 @@ public class Paper {
     public String getDate()
     {
         return date;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String toString(){
+        String retStr = String.format("Title: %s%nSummary: %s%nUri: %s%nDate: %s%n", title, summary, url, date);
+        return retStr;
     }
 }

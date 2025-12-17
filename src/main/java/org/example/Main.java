@@ -2,11 +2,6 @@ package org.example;
 
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -19,13 +14,14 @@ public class Main {
         parser.readFile(httpActions.getXml());
         ArrayList<Paper> papers = parser.getPapers();
 
-        System.out.println(papers.size());
+
+        JsonWriter writer = new JsonWriter(papers);
+        writer.writeToJsonFile();
+        PaperLoader loader = new PaperLoader("papers.jsonl");
+        papers = loader.getPapersFromJSON();
         for(Paper paper: papers)
         {
-            System.out.println("Title: " + paper.getTitle());
-            System.out.println("Summary: " + paper.getSummary());
-            System.out.println("Url: " + paper.getUrl());
-            System.out.println("Published: " + paper.getDate());
+            System.out.println(paper);
         }
 
 
