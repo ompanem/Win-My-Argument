@@ -5,11 +5,7 @@ public class Paper {
     private String summary = "";
     private String url = "";
     private String date = "";
-
-    public Paper()
-    {
-
-    }
+    private int score;
 
     public String getTitle()
     {
@@ -47,7 +43,17 @@ public class Paper {
         this.date = date;
     }
 
-    public String toString(){
+    public void setScore(int score)
+    {
+        this.score = score;
+    }
+
+    public int getScore()
+    {
+        return score;
+    }
+    public String toString()
+    {
         String retStr = String.format("Title: %s%nSummary: %s%nUri: %s%nDate: %s%n", title, summary, url, date);
         return retStr;
     }
